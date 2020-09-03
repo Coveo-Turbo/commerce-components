@@ -19,8 +19,6 @@
     ],
     "dependencies": {
         "@coveops/turbo-core": "^1.1.1",
-        "@types/jquery": "^3.5.1",
-        "@types/slick-carousel": "^1.6.34",
         "coveo-search-ui": "^2.9659.2",
         "jquery": "^3.5.1",
         "slick-carousel": "^1.8.1"
