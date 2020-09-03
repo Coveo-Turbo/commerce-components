@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://static.cloud.coveo.com/searchui/v2.8864/js/CoveoJsSearch.js"></script>
+    <script src="https://static.cloud.coveo.com/searchui/v2.8864/js/cultures/en.js"></script>
+    <script src="https://static.cloud.coveo.com/searchui/v2.8864/js/templates/templatesNew.js"></script>
+
+    <script src="config.js"></script>
+    <script src="component.js"></script>
+    <!-- <script src="components/<name>.js"></script> -->
+
+    <script src="init.js"></script>
+
+    <link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.8864/css/CoveoFullSearchNewDesign.css" />
+    <link rel="stylesheet" href="component.css" />
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Coveo.SearchEndpoint.endpoints['default'].options.queryStringArguments.viewAllContent = 'true';
+            Coveo.init(document.getElementById('search'), {
+                Analytics: {
+                    searchHub: demoConfig.searchHub,
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="search" class="CoveoSearchInterface" data-enable-history="true" data-pipeline="StorePicker">
+        <!-- <div class="CoveoFolding"></div> -->
+        <div class="CoveoAnalytics"></div>
+
+        <!-- <div class="CoveoDistanceResources" data-distance-field="@distance" data-latitude-field="@latitude" data-longitude-field="@longitude"
+        data-use-navigator="true" data-trigger-new-query-on-new-position='true'></div> -->
+
+        <div class="coveo-tab-section">
+          <a class="CoveoTab" data-id="All" data-caption="All Content"></a>
+          <!-- Temp for demo -->
+          <script>
+            localStorage.setItem('bopisStore', '{}');
+            document.addEventListener('afterComponentsInitialization', (e) => {
+              document.querySelector('.store-name .store').addEventListener('change', (e) => {
+                switch(e.target.value) {
+                  case 'Place Longueuil': localStorage.setItem('bopisStore', '{"storeNumber":"02555", "name":"PLACE LONGUEUIL", "storeHours":[{"day":"Sunday:","hours":"11:00am - 6:00pm"},{"day":"Monday:","hours":"10:00am - 6:00pm"},{"day":"Tuesday:","hours":"10:00am - 8:00pm"},{"day":"Wednesday:","hours":"10:00am - 8:00pm"},{"day":"Thursday:","hours":"10:00am - 8:00pm"},{"day":"Friday:","hours":"10:00am - 8:00pm"},{"day":"Saturday:","hours":"10:00am - 8:00pm"}] }'); break;
+                  case 'Montreal Premium Outlets': localStorage.setItem('bopisStore', '{"storeNumber":"02556", "name":"MONTREAL PREMIUM OUTLETS", "storeHours":[{"day":"Sunday:","hours":"11:00am - 6:00pm"},{"day":"Monday:","hours":"10:00am - 6:00pm"},{"day":"Tuesday:","hours":"10:00am - 8:00pm"},{"day":"Wednesday:","hours":"10:00am - 8:00pm"},{"day":"Thursday:","hours":"10:00am - 8:00pm"},{"day":"Friday:","hours":"10:00am - 8:00pm"},{"day":"Saturday:","hours":"10:00am - 8:00pm"}] }'); break;
+                  case 'Aviation Mall': localStorage.setItem('bopisStore', '{"storeNumber":"02557", "name":"AVIATION MALL", "storeHours":[{"day":"Sunday:","hours":"11:00am - 6:00pm"},{"day":"Monday:","hours":"10:00am - 6:00pm"},{"day":"Tuesday:","hours":"10:00am - 8:00pm"},{"day":"Wednesday:","hours":"10:00am - 8:00pm"},{"day":"Thursday:","hours":"10:00am - 8:00pm"},{"day":"Friday:","hours":"10:00am - 8:00pm"},{"day":"Saturday:","hours":"10:00am - 8:00pm"}] }'); break;
+                  default: localStorage.removeItem('bopisMyStore'); break;
+                }
+
+                e.target.dataset.value = e.target.value;
+              });
+            });
+          </script>
+          <div class="store-name">
+            <select class="store">
+              <option></option>
+              <option>Place Longueuil</option>
+              <option>Montreal Premium Outlets</option>
+              <option>Aviation Mall</option>
+            </select>
+          </div>
+          <!-- temp for demo -->
+        </div>
+        <div class="coveo-search-section">
+          <div class="CoveoSearchbox" data-enable-omnibox="true"></div>
+        </div>
+        <div class="coveo-main-section">
+          <div class="coveo-facet-column">
+            <!-- <div class="CoveoStoreFacet" data-title="Store" data-field="@storename" data-computed-field="@distance"
+             data-computed-field-format="n2" data-sort-criteria="computedfieldascending" data-number-of-values-in-facet-search='8'
+             data-enable-facet-search="true" data-enable-expand-collapse="true" data-auto-collapse="false"
+             data-number-of-values="8" data-enable-settings="false"></div> -->
+            <div class="CoveoDynamicFacetManager">
+              <div class="CoveoDynamicColorFacet" data-title="Color" data-field="@primarycolor" data-number-of-values="8"></div>
+              <div class="CoveoDynamicSizeFacet" data-title="Size" data-field="@productsize" data-sort-criteria="alphanumeric"
+               data-number-of-values="20" data-enable-facet-search="false"></div>
+              <div class="CoveoDynamicFacet" data-title="Brand" data-field="@brand" data-sort-criteria="alphanumeric"
+               data-number-of-values="12" data-enable-facet-search="false"></div>
+            </div>
+          </div>
+
+          <div class="coveo-results-column">
+
+            <div class="CoveoStorePicker"></div>
+
+            <div class="CoveoShareQuery"></div>
+            <div class="CoveoPreferencesPanel">
+              <div class="CoveoResultsPreferences"></div>
+              <div class="CoveoResultsFiltersPreferences"></div>
+            </div>
+            <div class="CoveoTriggers"></div>
+            <div class="CoveoBreadcrumb"></div>
+            <div class="CoveoDidYouMean"></div>
+            <div class="coveo-results-header">
+              <div class="coveo-summary-section">
+                <span class="CoveoQuerySummary"></span>
+                <span class="CoveoQueryDuration"></span>
+              </div>
+              <div class="coveo-result-layout-section">
+                <span class="CoveoResultLayout"></span>
+              </div>
+              <div class="coveo-sort-section">
+                <span class="CoveoSort" data-sort-criteria="relevancy" data-caption="Relevance"></span>
+                <span class="CoveoSort" data-sort-criteria="date descending,date ascending" data-caption="Date"></span>
+              </div>
+            </div>
+            <div class="CoveoHiddenQuery"></div>
+            <div class="CoveoErrorReport" data-pop-up="false"></div>
+            <!-- <div class="CoveoCarousel"></div> -->
+            <div class="CoveoResultList" data-layout="card" data-wait-animation="fade" data-auto-select-fields-to-include="true">
+              <script id="Default" class="result-template" type="text/x-underscore-template" data-layout="card">
+                <div class="coveo-result-frame">
+                    <div class="coveo-result-row">
+                      <div class="coveo-result-cell"><h2>{{- raw.brand }}</h2></div>
+                    </div>
+                    <div class="coveo-result-row">
+                        <div class="coveo-result-cell title">{{- raw.name }}</div>
+                    </div>
+                    {{
+                      var childCount = childResults.length
+                    }}
+                    {{ if (raw.images) { }}
+                    <div class="coveo-result-row">
+                      <div class="coveo-result-cell"><div class="img-wrap"><img style="max-width: 300px;" src="{{- raw.images[1]}}" /></div></div>
+                    </div>
+                    {{  } }}
+                    {{ if (raw.currentprice) { }}
+                    <div class="coveo-result-row">
+                      <div class="coveo-result-cell"><h3>${{- raw.currentprice }} </h3></div>
+                    </div>
+                    {{ } }}
+                    
+                    {{ if (childCount > 0) {
+                    }}<b>Also available in:</b><div style="padding-top: 5px"> {{
+                      for (i=0; i < childCount; i++) {
+                        var color = childResults[i].raw.primarycolor;
+                        }} 
+                          <span class="swatches {{- primarycolor }}" title="{{- primarycolor }}"></span>
+                        {{
+                      }
+                        }}</div>{{
+                    }
+                  }}
+                </div>
+              </script>
+            </div>
+            <div class="CoveoPager"></div>
+            <div class="CoveoLogo"></div>
+            <div class="CoveoResultsPerPage"></div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+/* Store Facet */
+.CoveoStoreFacet {
+  border: none;
+
+  .coveo-facet-header {
+    background: none;
+    padding: 7px 0;
+    border-bottom: thin solid #bcc3ca;
+
+    .coveo-facet-header-title {
+      font-size: 15px;
+      color: #0059b3;
+      font-weight: bold;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-transform: capitalize;
+    }
+  }
+  
+  .coveo-facet-value:hover {
+    background: none;
+    opacity: 0.6;
+  }
+
+  .coveo-facet-value {
+    padding: 3px 0;
+
+    .coveo-facet-value-count {
+      display: none;
+    }
+
+    .coveo-facet-value-label {
+      padding: 0;
+
+      .coveo-facet-value-computed-field:after {
+        content: 'km';
+        padding-left: 5px;
+      }
+    
+      .coveo-facet-value-checkbox {
+        height: 15px;
+        width: 16px;
+        margin-right: 12px;
+
+        svg {
+          display: none;
+          bottom: -2px;
+          left: 1px;
+        }
+      }
+    }
+
+    .coveo-facet-value-exclude {
+      display: none;
+    }
+  }
+
+  .coveo-facet-value.coveo-selected {
+    .coveo-facet-value-checkbox {
+      svg {
+        display: block;
+        bottom: -2px;
+        left: 1px;
+      }
+    }
+  }
+
+}

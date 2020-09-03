@@ -1,0 +1,24 @@
+@import './DynamicColorFacet.scss';
+@import './DynamicSizeFacet.scss';
+@import './StoreFacet.scss';
+@import './StorePicker.scss';
+
+.store-name {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+
+    .store {
+        padding: 10px;
+    }
+}
+
+.coveo-tab-section {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.CoveoSearchInterface .coveo-search-section {
+    margin: 80px auto 47px;
+}

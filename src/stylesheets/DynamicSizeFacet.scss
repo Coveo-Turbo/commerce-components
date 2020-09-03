@@ -1,0 +1,58 @@
+/* Dynamic Size Facet */
+.CoveoDynamicSizeFacet {
+    .coveo-dynamic-facet-values {
+      display: inline;
+  
+      .coveo-dynamic-facet-value {
+        width: 50px ;
+        display: inline-block;
+  
+        .coveo-checkbox-label {
+          .coveo-checkbox-button {
+            height: 44px;
+            width: 44px;
+            border-radius: 5px;
+          }
+  
+          .coveo-checkbox-button:before {
+            display: none;
+          }
+  
+          .coveo-checkbox-button:after {
+            display: none;
+          }
+  
+          .coveo-checkbox-span-label {
+            position: absolute;
+            margin: 0;
+            width: 44px;
+            display: block;
+            text-align: center;
+            opacity: 1.0;
+          }
+          
+          .coveo-checkbox-span-label-suffix {
+            display: none;
+          }
+        }
+  
+        .coveo-checkbox-label:hover {
+          .coveo-checkbox-button {
+            background-color: #4285F4;
+          }
+  
+          .coveo-checkbox-span-label {
+            color: white;
+          }
+        }
+      }   
+  
+      .coveo-dynamic-facet-value.coveo-selected {
+        
+        .coveo-checkbox-button {
+          background-color: #4285F4;
+          color: white;
+        }
+      }
+    }
+}

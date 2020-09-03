@@ -1,0 +1,16 @@
+.CoveoStorePicker {
+  display: flex;
+
+  .store-picker-checkbox {
+    width: 15px;
+    height: 15px;
+    margin-left: 0;
+  }
+
+  .pickup-label {
+    font-size: 14px;
+    margin-top: 2px;
+    margin-left: 5px;
+    display: block;
+  }
+}

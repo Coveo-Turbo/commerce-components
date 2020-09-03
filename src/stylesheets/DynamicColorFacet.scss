@@ -1,0 +1,30 @@
+/* Dynamic Color Facet */
+.CoveoDynamicColorFacet {
+    .coveo-dynamic-facet-value[data-value="Black"] .coveo-checkbox-button { background-color: #000; }
+    .coveo-dynamic-facet-value[data-value="White"] .coveo-checkbox-button { background-color: #fff; }
+    .coveo-dynamic-facet-value[data-value="Grey"] .coveo-checkbox-button { background-color: gray; }
+    .coveo-dynamic-facet-value[data-value="Brown"] .coveo-checkbox-button { background-color: brown; }
+    .coveo-dynamic-facet-value[data-value="Pink"] .coveo-checkbox-button { background-color: pink; }
+    .coveo-dynamic-facet-value[data-value="Navy"] .coveo-checkbox-button { background-color: navy; }
+    .coveo-dynamic-facet-value[data-value="Tan"] .coveo-checkbox-button { background-color: tan; }
+    .coveo-dynamic-facet-value[data-value="Metallic"] .coveo-checkbox-button { background-color: silver; }
+    .coveo-dynamic-facet-value[data-value="Red"] .coveo-checkbox-button { background-color: red; }
+    .coveo-dynamic-facet-value[data-value="Taupe"] .coveo-checkbox-button { background-color: burlywood; }
+    .coveo-dynamic-facet-value[data-value="Yellow"] .coveo-checkbox-button { background-color: yellow; }
+    .coveo-dynamic-facet-value[data-value="Green"] .coveo-checkbox-button { background-color: green; }
+    .coveo-dynamic-facet-value[data-value="Natural"] .coveo-checkbox-button { background-color: #f8f7ed; }
+    .coveo-dynamic-facet-value[data-value="Burgundy"] .coveo-checkbox-button { background-color: #900020; }
+    .coveo-dynamic-facet-value[data-value="Beige"] .coveo-checkbox-button { background-color: beige; }
+    .coveo-dynamic-facet-value[data-value="Bone"] .coveo-checkbox-button { background-color: #e3dac9; }
+    .coveo-dynamic-facet-value[data-value="Orange"] .coveo-checkbox-button { background-color: #b6801d; }
+    .coveo-dynamic-facet-value[data-value="Blue"] .coveo-checkbox-button { background-color: blue; }
+    .coveo-dynamic-facet-value[data-value="Purple"] .coveo-checkbox-button { background-color: purple; }
+    .coveo-dynamic-facet-value[data-value="Multi"] .coveo-checkbox-button {
+      background: red; /* For browsers that do not support gradients */
+      background:  repeating-linear-gradient( 45deg);
+      background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
+      background: linear-gradient(45deg, orange , yellow, green, cyan, blue, violet); /* Standard syntax (must be last) */
+    }
+}

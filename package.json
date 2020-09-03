@@ -1,0 +1,31 @@
+{
+    "name": "@coveops/commerce-components",
+    "version": "1.0.0",
+    "description": "Commerce Components Bundle",
+    "main": "dist/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "coveops build CommerceComponents --template typescript",
+        "watch": "coveops build CommerceComponents --template typescript --watch",
+        "serve": "coveops serve",
+        "precompile": "npm run build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "Apache-2.0",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "@coveops/turbo-core": "^1.1.1",
+        "@types/jquery": "^3.5.1",
+        "@types/slick-carousel": "^1.6.34",
+        "coveo-search-ui": "^2.9659.2",
+        "jquery": "^3.5.1",
+        "slick-carousel": "^1.8.1"
+    },
+    "devDependencies": {
+        "@coveops/cli": "^0.11.0"
+    }
+}
