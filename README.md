@@ -32,7 +32,15 @@ const CommerceComponents = require('@coveops/commerce-components').CommerceCompo
 export * from '@coveops/commerce-components'
 ```
 
-4. Include the component in your template as follows:
+4. Or for quick testing, you can add the script from unpkg
+
+```html
+<script src="https://unpkg.com/@coveops/commerce-components@1.0.0/dist/index.min.js"></script>
+```
+
+> Disclaimer: Unpkg should be used for testing but not for production.
+
+5. Include the component in your template as follows:
 
 Place the component in your markup:
 
