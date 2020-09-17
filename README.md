@@ -35,7 +35,7 @@ export * from '@coveops/commerce-components'
 4. Or for quick testing, you can add the script from unpkg
 
 ```html
-<script src="https://unpkg.com/@coveops/commerce-components@1.0.0/dist/index.min.js"></script>
+<script src="https://unpkg.com/@coveops/commerce-components@latest/dist/index.min.js"></script>
 ```
 
 > Disclaimer: Unpkg should be used for testing but not for production.
