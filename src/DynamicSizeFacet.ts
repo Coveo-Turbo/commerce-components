@@ -8,6 +8,8 @@ export class DynamicSizeFacet extends DynamicFacet {
     static ID = 'DynamicSizeFacet';
     static options: IDynamicSizeFacetOptions = {};
 
+    public observer;
+
     constructor(public element: HTMLElement, public options: IDynamicSizeFacetOptions, public bindings: IComponentBindings) {
         super(element, options, bindings);
         this.options = ComponentOptions.initComponentOptions(element, DynamicSizeFacet, options);
@@ -16,6 +18,11 @@ export class DynamicSizeFacet extends DynamicFacet {
     }
 
     private handleDeferredQuerySuccess(args: Coveo.IQuerySuccessEventArgs) {
+        if (!!this.observer) {
+            this.observer.disconnect();
+            this.observer = undefined;
+        }
+
         let facetValues: NodeListOf<HTMLElement> = this.element.querySelectorAll('.coveo-dynamic-facet-value');
         let valuesDict = [];
         _.forEach(facetValues, (el) => {
@@ -25,7 +32,12 @@ export class DynamicSizeFacet extends DynamicFacet {
 
         let valuesParentEl = this.element.querySelector('.coveo-dynamic-facet-values');
         if (!!valuesParentEl) {
-            let showMore = <HTMLElement>valuesParentEl.querySelector('li:last-child');
+            let specialChildList = [];
+            _.forEach(valuesParentEl.children, (childEl) => {
+                if (!childEl.classList.contains('coveo-dynamic-facet-value')) {
+                    specialChildList.push(childEl);
+                }
+            });
 
             valuesParentEl.innerHTML = '';
 
@@ -33,8 +45,22 @@ export class DynamicSizeFacet extends DynamicFacet {
                 valuesParentEl.appendChild(value.el);
             });
 
-            !!showMore && valuesParentEl.appendChild(showMore);
-        }
+            _.forEach(specialChildList, (specialChild) => {
+                valuesParentEl.appendChild(specialChild);
+            });
 
+            this.bindMutationObserver();
+        }
+    }
+
+    public bindMutationObserver() {
+        const mutationEl = <HTMLElement>this.element.querySelector('.coveo-dynamic-facet-values');
+        if (!this.observer) {
+            this.observer = new MutationObserver((mutationList, observer) => {
+                this.handleDeferredQuerySuccess(undefined);
+            });
+
+            this.observer.observe(mutationEl, { attributes: false, childList: true, subtree: false });
+        }
     }
 }
